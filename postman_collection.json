@@ -1,0 +1,162 @@
+{
+  "info": {
+    "name": "AI Text Classifier API",
+    "description": "Collection for testing the AI Text Classifier API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        },
+        "description": "Check if the API is running"
+      }
+    },
+    {
+      "name": "Classify Text - Complaint",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"I am unhappy with your customer support\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/classify",
+          "host": ["{{base_url}}"],
+          "path": ["api", "classify"]
+        },
+        "description": "Example of a complaint classification"
+      }
+    },
+    {
+      "name": "Classify Text - Query",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"How do I reset my password?\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/classify",
+          "host": ["{{base_url}}"],
+          "path": ["api", "classify"]
+        },
+        "description": "Example of a query classification"
+      }
+    },
+    {
+      "name": "Classify Text - Feedback",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"Great product! You could improve the packaging though\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/classify",
+          "host": ["{{base_url}}"],
+          "path": ["api", "classify"]
+        },
+        "description": "Example of feedback classification"
+      }
+    },
+    {
+      "name": "Classify Text - Other",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"The weather is nice today\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/classify",
+          "host": ["{{base_url}}"],
+          "path": ["api", "classify"]
+        },
+        "description": "Example of other classification"
+      }
+    },
+    {
+      "name": "Error - Missing Text",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/classify",
+          "host": ["{{base_url}}"],
+          "path": ["api", "classify"]
+        },
+        "description": "Test error handling for missing text field"
+      }
+    },
+    {
+      "name": "Error - Empty Text",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/classify",
+          "host": ["{{base_url}}"],
+          "path": ["api", "classify"]
+        },
+        "description": "Test error handling for empty text"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
